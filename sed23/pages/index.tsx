@@ -19,7 +19,7 @@ export default function Home() {
         {/* Banner and title */}
         <Banner />
       </section>
-
+      <section className="snap-center"></section>
       <section className="snap-center">
         {/* About SED 2023 */}
         <Introduction />

@@ -13,7 +13,7 @@ export default function Team() {
       </h1>
       <div
         className="h-4/5 space-y-5 mt-[150px] overflow-scroll
-       xl:grid xl:grid-cols-4 overflow-y-hidden"
+       xl:grid xl:grid-cols-4 "
       >
         <Member />
         <Member />

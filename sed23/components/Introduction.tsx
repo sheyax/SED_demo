@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import BackgroundCircles from "./BackgroundCircles";
 export default function Introduction() {
   return (
     <motion.div
@@ -7,10 +8,11 @@ export default function Introduction() {
       }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="h-screen flex flex-col items-center xl:justify-evenly md:text-left md:flex-row 
+      className="h-screen flex flex-col items-center  xl:justify-evenly md:text-left md:flex-row 
     max-w-7xl px-10 mx-auto xl:space-x-5"
     >
-      <div>
+      <BackgroundCircles />
+      <div className="z-20">
         {/* Title */}
         <h3 className=" my-20 xl:mt-2 uppercase tracking-[3px] text-2xl xl:text-4xl">
           Sustainable energy days 2023
