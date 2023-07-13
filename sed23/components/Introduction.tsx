@@ -7,12 +7,12 @@ export default function Introduction() {
       }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="h-screen flex flex-col items-center justify-evenly md:text-left md:flex-row 
+      className="h-screen flex flex-col items-center xl:justify-evenly md:text-left md:flex-row 
     max-w-7xl px-10 mx-auto xl:space-x-5"
     >
       <div>
         {/* Title */}
-        <h3 className=" mt-10 xl:mt-2 uppercase tracking-[3px] text-2xl xl:text-4xl">
+        <h3 className=" my-20 xl:mt-2 uppercase tracking-[3px] text-2xl xl:text-4xl">
           Sustainable energy days 2023
         </h3>
       </div>

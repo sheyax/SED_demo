@@ -7,11 +7,11 @@ export default function Registration() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="h-screen flex flex-col items-center justify-center "
+      className="h-screen flex relative flex-col items-center justify-center "
     >
-      <h3 className="font-semibold text-4xl uppercase tracking-[3px] mt-10">
+      <h3 className="absolute top-24 text-2xl uppercase tracking-[3px]">
         {" "}
-        Register Here{" "}
+        Secure your spot today{" "}
       </h3>
 
       <div className="mt-5 space-y-2 grid xl:grid-cols-2 xl:space-x-2 ">

@@ -4,6 +4,8 @@ import Header from "@/components/Header";
 import Banner from "@/components/Banner";
 import Introduction from "@/components/Introduction";
 import Registration from "@/components/Registration";
+import About from "@/components/About";
+import Team from "@/components/Team";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,9 +30,15 @@ export default function Home() {
         <Registration />
       </section>
 
-      <section>{/* About Us */}</section>
+      <section className="snap-start">
+        {/* About Us */}
+        <About />
+      </section>
 
-      <section>{/* Meet the Team  */}</section>
+      <section className="snap-center">
+        {/* Meet the Team  */}
+        <Team />{" "}
+      </section>
     </main>
   );
 }
