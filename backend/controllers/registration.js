@@ -78,13 +78,15 @@ router.post("/user/register", async (req, res) => {
     country: req.body.country,
   });
 
+  //Check if email or phone number already exists
+
   // save user
   result = await user.save();
-  const { data } = await result.toJSON();
+  const { ...data } = await result.toJSON();
 
   //Send Email
   mailSender(req.body.email, req.body.firstname);
-  res.send(data);
+  res.status(201).json(data);
 });
 
 router.get("/users", async (req, res) => {

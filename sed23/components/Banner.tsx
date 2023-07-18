@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Typewrite from "./Typewrite";
+import AIbanner from "../public/Hackaton.jpg";
 
 type Props = {};
 
@@ -33,7 +34,7 @@ export default function Banner({}: Props) {
 
       <div className="col-span-3">
         <img
-          src="../public/CC.jpg"
+          src={AIbanner}
           alt=""
           className="object-cover w-full xl:h-screen "
         />
