@@ -1,13 +1,9 @@
-const router = require("express").Router();
 const nodemailer = require("nodemailer");
 require("dotenv").config();
-const Mailgen = require("mailgen");
+const router = require("express").Router();
+var Mailgen = require("mailgen");
 
-const User = require("../models/users");
-const Hackathon = require("../models/hackusers");
-
-// mail sending controller
-const mailSender = (usermail, firstname) => {
+router.post("/mailsender", (req, res) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -20,7 +16,7 @@ const mailSender = (usermail, firstname) => {
     theme: "default",
     product: {
       // Appears in header & footer of e-mails
-      name: "SED2023 Team",
+      name: "Mailgen",
       link: "https://mailgen.js/",
       // Optional product logo
       // logo: 'https://mailgen.js/img/logo.png'
@@ -30,7 +26,7 @@ const mailSender = (usermail, firstname) => {
   // Mail body
   var email = {
     body: {
-      name: firstname,
+      name: "SED2023",
       intro: "Welcome to SED2023 we are excited to have you join us ",
       // action: {
       //     instructions: 'To get started with Mailgen, please click here:',
@@ -53,64 +49,22 @@ const mailSender = (usermail, firstname) => {
 
   const mailOptions = {
     from: "saxdamee@gmail.com",
-    to: usermail,
-    subject: "Sustainable Energy Days 2023",
+    to: "saxdasax@gmail.com",
+    subject: "Invoices due",
     html: emailBody,
   };
 
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
       console.log(error);
+      return res.status(500).json({ error });
     } else {
       console.log("Email sent: " + info.response);
+      return res.status(201).json({
+        msg: "you should receive an email",
+      });
     }
   });
-};
-
-// user registration
-router.post("/user/register", async (req, res) => {
-  const user = new User({
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-    email: req.body.email,
-    phone: req.body.phone,
-    city: req.body.city,
-    country: req.body.country,
-  });
-
-  // save user
-  result = await user.save();
-  const { data } = await result.toJSON();
-
-  //Send Email
-  mailSender(req.body.email, req.body.firstname);
-  res.send(data);
-});
-
-router.get("/users", async (req, res) => {
-  try {
-    const users = await User.find();
-    res.json(users);
-  } catch (err) {
-    console.error(error);
-    res.status(500).json({ message: " Server Error" });
-  }
-});
-
-router.post("/hack/register", async (req, res) => {
-  const user = new Hackathon({
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-    email: req.body.email,
-    phone: req.body.phone,
-    city: req.body.city,
-    country: req.body.country,
-  });
-
-  // save user
-  result = await user.save();
-  const { data } = await result.toJSON();
-  res.send(data);
 });
 
 module.exports = router;
